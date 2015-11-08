@@ -37,7 +37,7 @@ div img.thumbnail {
 
 #firstSentence {
     font-size:40px;
-    font-color: black;
+    color: ;
 }
 
 .makeBold {
@@ -54,4 +54,7 @@ div img.thumbnail {
 
 .makeMedium {
     font-size:17px;
+}
+
+.makeBlack {
 }
