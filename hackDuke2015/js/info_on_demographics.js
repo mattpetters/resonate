@@ -24,25 +24,43 @@ var getPercentForCategories = function(categories, callback) {
 	}
 }
 
-var updateChart = function() {
-	var elems = $("#buttonsToChangeChart").find("button"), count = elems.length;
+var updateSexChart = function() {
+	var elems = $("#buttonsSexChart").find("button"), count = elems.length;
 	var checkedValues = [];
 	elems.each( function(i) {
 		if ($(this).hasClass("btn-primary")) checkedValues.push($(this).attr("value"));
 		  if (!--count) {
 		    getPercentForCategories(checkedValues, function(percent) {
 		      // console.log("percent: " + percent);s
-		      $("#chart_header").text(percent + "% of this category will be affected");
-		      updateD3(percent);
+		      console.log($(this))
+		      $("#sex_chart_header").text((percent * 100).toFixed(2) + "% of " + checkedValues[0] + "s will be affected");
+		      updateSexD3(percent);
 		    });
 		  }
     });
 }
-var updateD3 =  function(percent) {
+
+var updateAgeChart = function() {
+	var elems = $("#buttonsAgeChart").find("button"), count = elems.length;
+	var checkedValues = [];
+	elems.each( function(i) {
+		if ($(this).hasClass("btn-primary")) checkedValues.push($(this).attr("value"));
+		  if (!--count) {
+		    getPercentForCategories(checkedValues, function(percent) {
+		      // console.log("percent: " + percent);s
+		      console.log($(this))
+		      $("#age_chart_header").text(percent.toFixed(2) * 100 + "% of " + checkedValues[0] + " Year Olds" + " will be affected");
+		      updateAgeD3(percent);
+		    });
+		  }
+    });
+}
+
+var updateAgeD3 =  function(percent) {
 	var data = [percent];
-	if ($("#chartContainer").children().length) {
-		console.log("yo");
-		var val = d3.select("#chartContainer").data(data);
+	if ($("#ageChart").children().length) {
+		
+		var val = d3.select("#ageChart").data(data);
 
 		rect1 = val.select("#rect1")
 				  .transition()
@@ -54,18 +72,18 @@ var updateD3 =  function(percent) {
 				  .attr("x", function(d) { return d * 400;})
 				  .attr("width", function(d) { return (1.0 - d) * 400; })
 	} else { //first time
-		var svgContainer = d3.select("#chartContainer").data(data)
+		var svgContainer = d3.select("#ageChart").data(data)
 									.append("svg")
                                     .attr("width", 400)
                                     .attr("height", 30);
-                                    
+
 		var rect1 = svgContainer.append('rect')
 								.attr("id", "rect1")
 								.attr("x", 0)
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", "green");
+		                        .style("fill", '#2ecc71');
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
@@ -73,9 +91,48 @@ var updateD3 =  function(percent) {
 								.attr("y", 0)
 								.attr("width", function(d) { return (1.0 - d) * 400; })
 								.attr("height", 30)
-								.style("fill", "red");             
+								.style("fill", '#95a5a6');             
+	}  
+}
+
+var updateSexD3 =  function(percent) {
+	var data = [percent];
+	if ($("#sexChart").children().length) {
+		
+		var val = d3.select("#sexChart").data(data);
+
+		rect1 = val.select("#rect1")
+				  .transition()
+				  .duration(50)
+				  .attr("width", function(d) { return d * 400; });
+		rect2 = val.select('#rect2')
+				  .transition()
+				  .duration(50)
+				  .attr("x", function(d) { return d * 400;})
+				  .attr("width", function(d) { return (1.0 - d) * 400; })
+	} else { //first time
+		var svgContainer = d3.select("#sexChart").data(data)
+									.append("svg")
+                                    .attr("width", 400)
+                                    .attr("height", 30);
+
+		var rect1 = svgContainer.append('rect')
+								.attr("id", "rect1")
+								.attr("x", 0)
+		                        .attr("y", 0)
+	                   		    .attr("width", function(d) { return d * 400; })
+		                        .attr("height", 30)
+		                        .style("fill", '#2ecc71');
+
+		var rect2 = svgContainer.append('rect')
+								.attr("id", "rect2")
+								.attr("x", function(d) { return d * 400;})
+								.attr("y", 0)
+								.attr("width", function(d) { return (1.0 - d) * 400; })
+								.attr("height", 30)
+								.style("fill", '#95a5a6');             
 	}
-	           
+}
 
 	// var rect1Attributes = rect1.attr("x", 0)
 	// 	                          .attr("y", 0)
@@ -88,4 +145,3 @@ var updateD3 =  function(percent) {
  //                               	  .attr("width", function(d) { return 1.0 - (1.0 - d.percent) * 400; })
  //                                  .attr("height", 50)
  //                                  .style("fill", "red");
-}

@@ -52,22 +52,43 @@
           </div>
           <div id="chartUnderText" class="col-lg-12 text-center">
           </div>
-          <div id="buttonsToChangeChart" class="col-lg-4"> 
-            <button class="btn btn-primary" value="Male">Male</button>
-            <button class="btn" value="Female">Female</button>
-            <h4 id="chart_header">value percent affected</h4>
-          </div>
-          <div id="chart"></div>
+            <h4 class="makeBold makeBig">Who would be affected by an increase in minimum wage?</h4>
+            <h5>Currently some candidates are in support of a $12 minimum wage.  Anyone at or near minimum wage would be affected.  Below you can explore who that would be per demographic.</h5>
+            </div>
+            <div id="buttonsSexChart" class="col-lg-4"> 
+              <h4 id="sex_chart_header">Gender</h4>
+              <button class="btn btn-primary" value="Male">Male</button>
+              <button class="btn" value="Female">Female</button>
+            </div>
+            <div style="clear:both"></div>
+            <br>
+            <div class="chart" id="sexChart"></div>
+            <div style="clear:both"></div>
+            <br>
+            <div id="buttonsAgeChart" class="col-lg-4"> 
+              <h4 id="age_chart_header">Age</h4>
+              <button class="btn btn-primary" value="Less than 25">Less than 25</button>
+              <button class="btn" value="25 to 39">25 to 39</button>
+              <button class="btn" value="40 to 54">40 to 54</button>
+              <button class="btn" value="55+">55+</button>
+            </div>
+            <div style="clear:both"></div>
+            <br>
+            <div class="chart" id="ageChart"></div>
+
           <script>
-          updateChart();
+          updateSexChart();
+          updateAgeChart();
           $("button").click(function(event) {
               $(event.target).siblings().removeClass("btn-primary");
               $(event.target).addClass("btn-primary");
-              updateChart();
+              var chart = $(event.target).parent().attr("id");
+              if (chart == 'buttonsAgeChart') {
+                updateAgeChart();
+              } else if (chart == 'buttonsSexChart') {
+                updateSexChart();
+              }
           });
-
-
-
           </script>
           <div id="chartContainer">
           </div>
