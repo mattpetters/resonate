@@ -1,4 +1,4 @@
-<html>
+<html ng-app="myApp">
   <head>
   <title>resonate</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -8,128 +8,105 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.2/jquery.tipsy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="js/app.js"></script>
 
 </head>
 
 <body class="col-lg-12">
-  <div id="branding" class="col-lg-offset-2 col-lg-8 text-center">
-    <h1>resonate</h1>
-    <hr>
-  </div>
-  <div id="chartDescription" class="col-lg-12"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum in illo modi vitae eaque perspiciatis et labore est voluptate voluptatibus quibusdam suscipit, asperiores nihil. Officia ex rem ratione adipisci quasi.</h3></div>
-  <div id="chart1" class="col-lg-12 text-center">
-    <svg id="povertyChart" class="text-center"></svg>
-  </div>
-  <div id="chartUnderText" class="col-lg-12 text-center">
-  <h1>Info on the Json data</h1>
-  </div>
-  <div id="buttonsToChangeChart" class="col-lg-4"> 
-  <button class="btn btn-primary" value="Male">Male</button>
-  <button class="btn" value="Female">Female</button>
-  </div>
-  <div id="resultOfButtonPress" class="col-lg-12">
-  </div>
+  <div id="controller" ng-controller="HomeController">
+      <div id="branding" class="col-lg-offset-2 col-lg-8 text-center">
+            <h1>resonate</h1>
+            <hr>
+          </div>
+          <div id="chartDescription" class="col-lg-12"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum in illo modi vitae eaque perspiciatis et labore est voluptate voluptatibus quibusdam suscipit, asperiores nihil. Officia ex rem ratione adipisci quasi.</h3></div>
+          <div id="chart1" class="col-lg-12 text-center">
+            <svg id="povertyChart" class="text-center"></svg>
+          </div>
+          <div id="chartUnderText" class="col-lg-12 text-center">
+          <h1>Info on the Json data</h1>
+          </div>
+          <div id="buttonsToChangeChart" class="col-lg-4"> 
+          <button class="btn btn-primary" value="Male">Male</button>
+          <button class="btn" value="Female">Female</button>
+          </div>
+          <div id="resultOfButtonPress" class="col-lg-12">
+          </div>
 
-  <div id="candidatebox" class="col-lg-12">
+          <div id="candidatebox" class="col-lg-12">
 
-  <div id="whichCandidate">
-    <h4>Which presidential candidates for November 2015 share your opinion?</h4>
-  </div>
+          <div id="whichCandidate">
+            <h4>Which presidential candidates for November 2015 share your opinion?</h4>
+          </div>
 
-  <div id="bernie" class="col-lg-12">
-    <img src="" class="col-lg-6">
-    <div class="col-lg-6">
-          <h4><b>Bernie Sanders</b>, Democrat</h4>
-          <h5>In late July, he introduced a bill to Congress that will raise the minimum wage to $15 over four years. </h5>
-          <h5><i>"I think if you work 40 hours a week, you have a right not to live in poverty. The current federal minimum wage is a starvation wage. It's got to be raised to a living wage."</i></h5>
+          <div id="bernie" class="col-lg-12" ng-show="bernie">
+            <img src="img/bern.jpg" class="thumbnail col-lg-6">
+            <div class="col-lg-6">
+                  <h4><b>Bernie Sanders</b>, Democrat</h4>
+                  <h5>In late July, he introduced a bill to Congress that will raise the minimum wage to $15 over four years. </h5>
+                  <h5><i>"I think if you work 40 hours a week, you have a right not to live in poverty. The current federal minimum wage is a starvation wage. It's got to be raised to a living wage."</i></h5>
+            </div>
+          </div>
+
+          <div id="hillary" class="col-lg-12" ng-show="hillary">
+            <img src="img/hilldog.jpg" class="thumbnail col-lg-6">
+            <div class="col-lg-6">
+                    <h4><b>Hillary Clinton</b>, Democrat</h4>
+                    <h5>She supports raising the minimum wage to a national standard of $12, so it doesn't crush smaller economies. Meanwhile, some cities and states like New York and LA may choose to go higher.
+                    </h5>
+                    <h5><i>"Every American deserves a fair shot at success. Fast food & child care workers shouldn't have to march in streets for living wages."
+                    </i></h5>  
+            </div>  
+          </div>
+
+          <div id="ben" class="col-lg-12" ng-show="ben">
+          <img src="img/ben.jpg" class="thumbnail col-lg-6">
+          <div class="col-lg-6">
+              <h4><b>Ben Carson</b>, Republican</h4>
+              <h5>He would "probably" favor raising minimum wage and tying it to economic factors, like inflation, so that it continues to increase yearly at a steady pace.
+              </h5>
+              <h5><i>"We should index [the new federal minimum wage] so that we never have to have this conversation again in the history of America."
+              </i></h5>   
+              </div> 
+          </div>
+
+          <div id="rick" class="col-lg-12" ng-show="rick">
+          <img src="img/rick.jpg" class="thumbnail col-lg-6">
+          <div class="col-lg-6">
+              <h4><b>Rick Santorum</b>, Republican</h4>
+              <h5>He wants to increase the min wage by just 50 cents over three years. He believes that the Republican party should be concerned about regular people, not just the companies which employ them.
+              </h5>
+              <h5><i>"A party that supported bailouts... a party that supports special interest tax provisions for a whole bunch of other businesses. But when it comes to hardworking Americans who are at the bottom of the income scale, we can't provide some level of income support."
+              </i></h5>
+              </div>
+          </div>
+
+          <div id="trump" class="col-lg-12" ng-show="trump">
+          <img src="img/trump.jpg" class="thumbnail col-lg-6">
+          <div class="col-lg-6">
+              <h4><b>Donald Trump</b>, Republican</h4>
+              <h5>He is not in favor of raising minimum wage, because he believes American companies would find it harder to compete with businesses abroad.
+              </h5>
+              <h5><i>"Having a low minimum wage is not a bad thing for this country. We can't have a situation where our labor is so much more expensive than other countries' that we can no longer win."
+              </i></h5>
+              </div>
+          </div>
+
+        </div>
+        <div id="moreButton" class="col-lg-12">
+          <button class="btn btn-primary" ng-click="toggleCandidate()">That ain't my candidate...show me more</button>
+        </div>
+  
+          <script src="js/d3code.js">
+          </script>
+
+          <div id="votebox" class="col-lg-12">
+          <h5>If this issue resonates with you, please cast your vote this November.</h5>
+          <h5>58% of Americans did not vote in our last presidential election. If all of these 184,962,000 citizens voted in this election, we might see real change and a more representative democracy.
+          </h5>
     </div>
   </div>
 
-  <div id="hillary" class="col-lg-12">
-    <img src="" class="col-lg-6">
-    <div class="col-lg-6">
-            <h4><b>Hillary Clinton</b>, Democrat</h4>
-            <h5>She supports raising the minimum wage to a national standard of $12, so it doesn't crush smaller economies. Meanwhile, some cities and states like New York and LA may choose to go higher.
-            </h5>
-            <h5><i>"Every American deserves a fair shot at success. Fast food & child care workers shouldn't have to march in streets for living wages."
-            </i></h5>  
-    </div>  
-  </div>
-
-  <div id="ben" class="col-lg-12">
-  <img src="" class="col-lg-6">
-  <div class="col-lg-6">
-      <h4><b>Ben Carson</b>, Republican</h4>
-      <h5>He would "probably" favor raising minimum wage and tying it to economic factors, like inflation, so that it continues to increase yearly at a steady pace.
-      </h5>
-      <h5><i>"We should index [the new federal minimum wage] so that we never have to have this conversation again in the history of America."
-      </i></h5>   
-      </div> 
-  </div>
-
-  <div id="rick" class="col-lg-12">
-  <img src="" class="col-lg-6">
-  <div class="col-lg-6">
-      <h4><b>Rick Santorum</b>, Republican</h4>
-      <h5>He wants to increase the min wage by just 50 cents over three years. He believes that the Republican party should be concerned about regular people, not just the companies which employ them.
-      </h5>
-      <h5><i>"A party that supported bailouts... a party that supports special interest tax provisions for a whole bunch of other businesses. But when it comes to hardworking Americans who are at the bottom of the income scale, we can't provide some level of income support."
-      </i></h5>
-      </div>
-  </div>
-
-  <div id="trump" class="col-lg-12">
-  <img src="" class="col-lg-6">
-  <div class="col-lg-6">
-      <h4><b>Donald Trump</b>, Republican</h4>
-      <h5>He is not in favor of raising minimum wage, because he believes American companies would find it harder to compete with businesses abroad.
-      </h5>
-      <h5><i>"Having a low minimum wage is not a bad thing for this country. We can't have a situation where our labor is so much more expensive than other countries' that we can no longer win."
-      </i></h5>
-      </div>
-  </div>
-
-</div>
-
-  <script>
-     d3.json("client/data.json", function(err, info) {
-        var svg = d3.select("#povertyChart");
-
-        var data = info.povertyRates;
-        console.log(data);
-
-        var cHeight = 500;
-
-        var maxRate = d3.max(data, function(d) { return d.rate } );
-
-        var yScale = d3.scale.linear()
-          .domain([11, maxRate])
-          .range([cHeight, 0])
-
-        var g = svg.append("g").attr("transform", "translate(95, 50)");
-
-        var circles = g.selectAll("circle").data(data);
-
-        circles.enter()
-        .append("circle")
-        .attr({
-          cx:function(d,i){return 49 + i * 22},
-          cy:function(d,i){return yScale(d.rate)},
-          r:9
-        })
-        .on('mouseover', function(d) {
-          d3.select(this).append("svg:title").text("yesy")
-        });
-      });
-
-     $('svg circle').tipsy();
-  </script>
-
-  <div id="votebox" class="col-lg-12">
-  <h5>If this issue resonates with you, please cast your vote this November.</h5>
-  <h5>58% of Americans did not vote in our last presidential election. If all of these 184,962,000 citizens voted in this election, we might see real change and a more representative democracy.
-  </h5>
-</div>
 
 </body>
 </html>

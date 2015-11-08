@@ -29,3 +29,8 @@ svg {
     height: 500px;
     width: 100%;
 }
+
+div img.thumbnail {
+    width:250px;
+    height:250px;
+}
