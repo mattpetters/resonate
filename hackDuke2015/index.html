@@ -34,6 +34,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/info_on_demographics.js"></script>
+  <script src="js/compiled_info.js"></script>
   </head>
 
 <body class="col-lg-12">
@@ -110,13 +111,20 @@
             <div style="clear:both"></div>
             <br>
             <div class="chart" id="hoursChart"></div>
-
+            <div style="clear:both"></div>
+            <h4 class="makeBold makeBig">So what does that all mean together?  We included a severity ranking to show you.?</h4>
+            <h4 id="severity_chart_header">Family</h4>
+            <br>
+            <div class="chart" id="severityChart"></div>
+            <div style="clear:both"></div>
+            <br>
           <script>
           updateSexChart();
           updateAgeChart();
           updateRaceChart();
           updateFamilyChart();
           updateHoursChart();
+          updateSeverity();
           $("button").click(function(event) {
               $(event.target).siblings().removeClass("btn-primary");
               $(event.target).addClass("btn-primary");
@@ -132,6 +140,7 @@
               } else if (chart == "buttonsHoursChart") {
                 updateHoursChart();
               }
+              updateSeverity();
           });
           </script>
           <div id="chartContainer">

@@ -1,3 +1,5 @@
+var barColor = "#2ecc71";
+
 var getPercentForCategory = function(category, callback) {
 	$.getJSON("client/raising_min_wage.json", function(json) {
 	    if (json[category]) {
@@ -131,7 +133,7 @@ var updateHoursD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", '#2ecc71');
+		                        .style("fill", barColor);
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
@@ -170,7 +172,7 @@ var updateFamilyD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", '#2ecc71');
+		                        .style("fill", barColor);
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
@@ -209,7 +211,7 @@ var updateRaceD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", '#2ecc71');
+		                        .style("fill", barColor);
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
@@ -248,7 +250,7 @@ var updateAgeD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", '#2ecc71');
+		                        .style("fill", barColor);
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
@@ -287,7 +289,7 @@ var updateSexD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", '#2ecc71');
+		                        .style("fill", barColor);
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
