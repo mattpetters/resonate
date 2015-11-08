@@ -19,13 +19,14 @@ d3.json("client/data.json", function(err, info) {
         circles.enter()
         .append("circle")
         .attr({
-          cx:function(d,i){return 49 + i * 22},
+          cx:function(d,i){return 0},
           cy:function(d,i){return yScale(d.rate)},
-          r:9
-        })
-        .on('mouseover', function(d) {
-          d3.select(this).append("svg:title").text("yesy")
-        });
-      });
-
-     $('svg circle').tipsy();
+          r: 1,
+          fill:'#35b025'
+        }).transition().delay(50).duration(1000).attr({
+          cx:function(d,i){return 20 * i},
+            cy:function(d,i){return yScale(d.rate)},
+           r: 9,
+           fill:'#25B0B0'  
+          });
+});
