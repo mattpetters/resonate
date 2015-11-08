@@ -66,7 +66,7 @@ d3.json("client/data.json", function(err, info) {
         .attr("text-anchor", "end")
         .attr("x", width - width/3.52)
         .attr("y", cHeight + cHeight/5)
-        .text("poverty rate,  (years)");
+        .text("poverty rate  (years)");
 
     svg.append("text")
     .attr("class", "y label")
@@ -76,6 +76,15 @@ d3.json("client/data.json", function(err, info) {
     .attr("dy", ".81em")
     .attr("transform", "rotate(-90)")
     .text("population in poverty (%)");
+
+    $('svg circle').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          var d = this.__data__;
+          return d.rate + '%'; 
+        }
+      });
 
 });
 
