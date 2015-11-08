@@ -75,10 +75,48 @@
             <div style="clear:both"></div>
             <br>
             <div class="chart" id="ageChart"></div>
+            <div style="clear:both"></div>
+            <br>
+            <div id="buttonsRaceChart" class="col-lg-4"> 
+              <h4 id="race_chart_header">Age</h4>
+              <button class="btn btn-primary" value="White, non-Hispanic">White, non-Hispanic</button>
+              <button class="btn" value="Black or African American">Black or African American</button>
+              <button class="btn" value="Hispanic of any race">Hispanic of any race</button>
+              <button class="btn" value="Asian or other race/ethnicity">Asian or other race/ethnicity</button>
+            </div>
+            <div style="clear:both"></div>
+            <br>
+            <div class="chart" id="raceChart"></div>
+            <div style="clear:both"></div>
+            <br>
+            <div id="buttonsFamilyChart" class="col-lg-4"> 
+              <h4 id="family_chart_header">Family</h4>
+              <button class="btn btn-primary" value="Married parent">Married parent</button>
+              <button class="btn" value="Single parent">Single parent</button>
+              <button class="btn" value="Married, no kids">Married, no kids</button>
+              <button class="btn" value="Unmarried, no kids">Unmarried, no kids</button>
+            </div>
+            <div style="clear:both"></div>
+            <br>
+            <div class="chart" id="familyChart"></div>
+            <div style="clear:both"></div>
+            <br>
+            <div id="buttonsHoursChart" class="col-lg-4"> 
+              <h4 id="hours_chart_header">Family</h4>
+              <button class="btn btn-primary" value="Part time (< 19 hours per week)">Part time (lessthan 19 hours per week)</button>
+              <button class="btn" value="Mid time (20-34 hours per week)">Mid time (20-34 hours per week)</button>
+              <button class="btn" value="Full time (35+ hours per week)">Full time (35+ hours per week)</button>
+            </div>
+            <div style="clear:both"></div>
+            <br>
+            <div class="chart" id="hoursChart"></div>
 
           <script>
           updateSexChart();
           updateAgeChart();
+          updateRaceChart();
+          updateFamilyChart();
+          updateHoursChart();
           $("button").click(function(event) {
               $(event.target).siblings().removeClass("btn-primary");
               $(event.target).addClass("btn-primary");
@@ -87,6 +125,12 @@
                 updateAgeChart();
               } else if (chart == 'buttonsSexChart') {
                 updateSexChart();
+              } else if (chart == 'buttonsRaceChart') {
+                updateRaceChart();
+              } else if (chart == "buttonsFamilyChart") {
+                updateFamilyChart();
+              } else if (chart == "buttonsHoursChart") {
+                updateHoursChart();
               }
           });
           </script>

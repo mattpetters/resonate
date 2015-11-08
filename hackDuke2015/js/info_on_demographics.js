@@ -56,6 +56,171 @@ var updateAgeChart = function() {
     });
 }
 
+var updateRaceChart = function() {
+	var elems = $("#buttonsRaceChart").find("button"), count = elems.length;
+	var checkedValues = [];
+	elems.each( function(i) {
+		if ($(this).hasClass("btn-primary")) checkedValues.push($(this).attr("value"));
+		  if (!--count) {
+		    getPercentForCategories(checkedValues, function(percent) {
+		      // console.log("percent: " + percent);s
+		      console.log($(this))
+		      $("#race_chart_header").text(percent.toFixed(2) * 100 + "% of " + checkedValues[0] + " people will be affected");
+		      updateRaceD3(percent);
+		    });
+		  }
+    });
+}
+
+var updateFamilyChart = function() {
+	var elems = $("#buttonsFamilyChart").find("button"), count = elems.length;
+	var checkedValues = [];
+	elems.each( function(i) {
+		if ($(this).hasClass("btn-primary")) checkedValues.push($(this).attr("value"));
+		  if (!--count) {
+		    getPercentForCategories(checkedValues, function(percent) {
+		      // console.log("percent: " + percent);s
+		      console.log($(this))
+		      $("#family_chart_header").text(percent.toFixed(2) * 100 + "% of " + checkedValues[0] + " will be affected");
+		      updateFamilyD3(percent);
+		    });
+		  }
+    });
+}
+
+var updateHoursChart = function() {
+	var elems = $("#buttonsHoursChart").find("button"), count = elems.length;
+	var checkedValues = [];
+	elems.each( function(i) {
+		if ($(this).hasClass("btn-primary")) checkedValues.push($(this).attr("value"));
+		  if (!--count) {
+		    getPercentForCategories(checkedValues, function(percent) {
+		      // console.log("percent: " + percent);s
+		      console.log($(this))
+		      $("#hours_chart_header").text(percent.toFixed(2) * 100 + "% of " + checkedValues[0] + " workers will be affected");
+		      updateHoursD3(percent);
+		    });
+		  }
+    });
+}
+
+var updateHoursD3 =  function(percent) {
+	var data = [percent];
+	if ($("#hoursChart").children().length) {
+		
+		var val = d3.select("#hoursChart").data(data);
+
+		rect1 = val.select("#rect1")
+				  .transition()
+				  .duration(50)
+				  .attr("width", function(d) { return d * 400; });
+		rect2 = val.select('#rect2')
+				  .transition()
+				  .duration(50)
+				  .attr("x", function(d) { return d * 400;})
+				  .attr("width", function(d) { return (1.0 - d) * 400; })
+	} else { //first time
+		var svgContainer = d3.select("#hoursChart").data(data)
+									.append("svg")
+                                    .attr("width", 400)
+                                    .attr("height", 30);
+
+		var rect1 = svgContainer.append('rect')
+								.attr("id", "rect1")
+								.attr("x", 0)
+		                        .attr("y", 0)
+	                   		    .attr("width", function(d) { return d * 400; })
+		                        .attr("height", 30)
+		                        .style("fill", '#2ecc71');
+
+		var rect2 = svgContainer.append('rect')
+								.attr("id", "rect2")
+								.attr("x", function(d) { return d * 400;})
+								.attr("y", 0)
+								.attr("width", function(d) { return (1.0 - d) * 400; })
+								.attr("height", 30)
+								.style("fill", '#95a5a6');             
+	}  
+}
+
+var updateFamilyD3 =  function(percent) {
+	var data = [percent];
+	if ($("#familyChart").children().length) {
+		
+		var val = d3.select("#familyChart").data(data);
+
+		rect1 = val.select("#rect1")
+				  .transition()
+				  .duration(50)
+				  .attr("width", function(d) { return d * 400; });
+		rect2 = val.select('#rect2')
+				  .transition()
+				  .duration(50)
+				  .attr("x", function(d) { return d * 400;})
+				  .attr("width", function(d) { return (1.0 - d) * 400; })
+	} else { //first time
+		var svgContainer = d3.select("#familyChart").data(data)
+									.append("svg")
+                                    .attr("width", 400)
+                                    .attr("height", 30);
+
+		var rect1 = svgContainer.append('rect')
+								.attr("id", "rect1")
+								.attr("x", 0)
+		                        .attr("y", 0)
+	                   		    .attr("width", function(d) { return d * 400; })
+		                        .attr("height", 30)
+		                        .style("fill", '#2ecc71');
+
+		var rect2 = svgContainer.append('rect')
+								.attr("id", "rect2")
+								.attr("x", function(d) { return d * 400;})
+								.attr("y", 0)
+								.attr("width", function(d) { return (1.0 - d) * 400; })
+								.attr("height", 30)
+								.style("fill", '#95a5a6');             
+	}  
+}
+
+var updateRaceD3 =  function(percent) {
+	var data = [percent];
+	if ($("#raceChart").children().length) {
+		
+		var val = d3.select("#raceChart").data(data);
+
+		rect1 = val.select("#rect1")
+				  .transition()
+				  .duration(50)
+				  .attr("width", function(d) { return d * 400; });
+		rect2 = val.select('#rect2')
+				  .transition()
+				  .duration(50)
+				  .attr("x", function(d) { return d * 400;})
+				  .attr("width", function(d) { return (1.0 - d) * 400; })
+	} else { //first time
+		var svgContainer = d3.select("#raceChart").data(data)
+									.append("svg")
+                                    .attr("width", 400)
+                                    .attr("height", 30);
+
+		var rect1 = svgContainer.append('rect')
+								.attr("id", "rect1")
+								.attr("x", 0)
+		                        .attr("y", 0)
+	                   		    .attr("width", function(d) { return d * 400; })
+		                        .attr("height", 30)
+		                        .style("fill", '#2ecc71');
+
+		var rect2 = svgContainer.append('rect')
+								.attr("id", "rect2")
+								.attr("x", function(d) { return d * 400;})
+								.attr("y", 0)
+								.attr("width", function(d) { return (1.0 - d) * 400; })
+								.attr("height", 30)
+								.style("fill", '#95a5a6');             
+	}  
+}
+
 var updateAgeD3 =  function(percent) {
 	var data = [percent];
 	if ($("#ageChart").children().length) {
