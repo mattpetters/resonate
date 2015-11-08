@@ -8,10 +8,9 @@ myApp.controller('HomeController', ['$scope', function($scope) {
   $scope.trump = true;
 
 
-
   $scope.toggleCandidate = function() {
-  		$scope.trump = false;
-  		$scope.rick = true;
+
   }
+
 }]);
 
