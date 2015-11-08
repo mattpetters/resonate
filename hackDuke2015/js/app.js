@@ -1,3 +1,4 @@
+
 var myApp = angular.module('myApp',[]);
 
 myApp.controller('HomeController', ['$scope', function($scope) {
@@ -5,14 +6,14 @@ myApp.controller('HomeController', ['$scope', function($scope) {
 	{ 	"name": "bernie",
 		"bioName":"Bernie Sanders",
 		"bioType":"- Democrat",
-		"summary":"In late July, he introduced a bill to Congress that will raise the minimum wage to $15 over four years.",
+		"summary":"In late July, he introduced a bill to Congress that will raise the minimum wage to $15.00 over four years.",
 		"quote":"\"I think if you work 40 hours a week, you have a right not to live in poverty. The current federal minimum wage is a starvation wage. It's got to be raised to a living wage.\"",
 		"img":"img/bern.jpg"
 	}, 
 	{	"name": "hillary",
 		"bioName":"Hillary Clinton",
 		"bioType":"- Democrat",
-		"summary":"She supports raising the minimum wage to a national standard of $12, so it doesn't crush smaller economies. Meanwhile, some cities and states like New York and LA may choose to go higher.",
+		"summary":"She supports raising the minimum wage to a national standard of $12.00, so the change doesn't crush smaller economies. Meanwhile, some cities and states like LA and New York may choose to go higher.",
 		"quote":"\"Every American deserves a fair shot at success. Fast food & child care workers shouldn't have to march in streets for living wages.\"",
 		"img":"img/hilldog.jpg"
 	}, 
