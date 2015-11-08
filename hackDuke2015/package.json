@@ -1,0 +1,11 @@
+{
+  "name": "resonate",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "connect": "^3.4.0"
+  }
+}
