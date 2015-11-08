@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" ng-init="test='ransel'">
+<html ng-app="myApp">
   <head>
   <title>resonate</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,24 +40,26 @@
 
         <div id="candidatebox" class="col-lg-12">
 
-          <div id="whichCandidate">
-            <h4>Which presidential candidate for November 2015 shares your opinion?</h4>
+          <div id="whichCandidate" class="makeBig">
+          Which presidential candidate for November 2015 shares your opinion?
           </div>
 
           <div ng-repeat="candidate in candidates" id="{{candidate}}" class="col-lg-12" input type = "text">
             <img src="{{candidate.img}}" class="thumbnail col-lg-6">
-            <div class="col-lg-6 makeBold">
-                  {{candidate.bioName}}
-            </div>
             <div class="col-lg-6">
-                  {{candidate.bioType}}
+              <span class="makeBig makeBold">
+                    {{candidate.bioName}}
+              </span>
+              <span class="makeBig">
+                    {{candidate.bioType}}
+              </span>
             </div>
             <br>
-            <div class="col-lg-6">
+            <div class="col-lg-6 makeMedium">
                   {{candidate.summary}}
             </div>
             <br>
-            <div class="col-lg-6 makeItalic">
+            <div class="col-lg-6 makeMedium makeItalic">
                   {{candidate.quote}}
             </div>
           </div>
@@ -74,6 +76,7 @@
           <h5>If this issue resonates with you, please cast your vote this November.</h5>
           <h5>58% of Americans did not vote in our last presidential election. If all of those 184,962,000 citizens voted in this election, we might see real change in the daily lives of Americans.
           </h5>
+
           <div> <h6>&copy; Chris Altonji, Annalise Irby, Devanji Maisuria, Matt Petters. November 2015.</h6></div>
     </div>
   </div>

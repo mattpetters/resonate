@@ -45,9 +45,13 @@ div img.thumbnail {
 }
 
 .makeItalic {
-    font-weight: italic;
+    font-style: italic;
 }
 
 .makeBig {
     font-size:30px;
+}
+
+.makeMedium {
+    font-size:17px;
 }
