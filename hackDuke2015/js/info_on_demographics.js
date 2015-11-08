@@ -58,7 +58,7 @@ var updateD3 =  function(percent) {
 									.append("svg")
                                     .attr("width", 400)
                                     .attr("height", 30);
-
+                                    
 		var rect1 = svgContainer.append('rect')
 								.attr("id", "rect1")
 								.attr("x", 0)
