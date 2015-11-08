@@ -3,7 +3,10 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('HomeController', ['$scope', function($scope) {
 	$scope.candidates = [
 	{ 	"name": "bernie",
-		"bio":"<h4><b>Bernie Sanders</b>, Democrat</h4><br><h5>In late July, he introduced a bill to Congress that will raise the minimum wage to $15 over four years. </h5><br><h5><i>\"I think if you work 40 hours a week, you have a right not to live in poverty. The current federal minimum wage is a starvation wage. It's got to be raised to a living wage.\"</i></h5>",
+		"bioName":"Bernie Sanders",
+		"bioType":", Democrat",
+		"summary":"In late July, he introduced a bill to Congress that will raise the minimum wage to $15 over four years.",
+		"quote":<br><h5><i>\"\"I think if you work 40 hours a week, you have a right not to live in poverty. The current federal minimum wage is a starvation wage. It's got to be raised to a living wage.\"",
 		"img":"img/bern.jpg"
 	}, 
 	{	"name": "hillary",

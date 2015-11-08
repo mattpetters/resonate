@@ -34,3 +34,20 @@ div img.thumbnail {
     width:250px;
     height:250px;
 }
+
+#firstSentence {
+    font-size:40px;
+    font-color: black;
+}
+
+.makeBold {
+    font-weight: bold;
+}
+
+.makeItalic {
+    font-weight: italic;
+}
+
+.makeBig {
+    font-size:30px;
+}
