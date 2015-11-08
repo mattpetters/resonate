@@ -25,7 +25,7 @@ button:focus {
   outline: none;
 }
 
-svg {
+#povertyChart {
     height: 700px;
     width: 1000px;
 }
