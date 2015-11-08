@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html ng-app="myApp">
   <head>
   <title>resonate</title>
@@ -16,15 +17,19 @@
 <body class="col-lg-12">
   <div id="controller" ng-controller="HomeController">
       <div id="branding" class="col-lg-offset-2 col-lg-8 text-center">
-            <h1>resonate</h1>
+            <img id="logo" src="img/thing.jpg" width="400px" height="350px"></img>
             <hr>
           </div>
-          <div id="chartDescription" class="col-lg-12"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum in illo modi vitae eaque perspiciatis et labore est voluptate voluptatibus quibusdam suscipit, asperiores nihil. Officia ex rem ratione adipisci quasi.</h3></div>
+          <div id="chartDescription" class="col-lg-12 text-center"><div id="firstSentence">Minimum wage is the lowest salary per hour permitted by law.</div>
+          <h5>Currently, our federal minimum wage is $7.25 per hour. </h5>
+          <h5>When adjusted for inflation, this is $3.00 less than the minimum wage in 1968.</h5>
+          <h4 class="makeBold makeBig">What happens to Americans if we raise or lower the minimum wage?</h4>
+          </div>
           <div id="chart1" class="col-lg-12 text-center">
             <svg id="povertyChart" class="text-center"></svg>
           </div>
           <div id="chartUnderText" class="col-lg-12 text-center">
-          <h1>Info on the Json data</h1>
+          <h1>background on json data</h1>
           </div>
           <div id="buttonsToChangeChart" class="col-lg-4"> 
             <button class="btn btn-primary" value="Male">Male</button>
@@ -45,35 +50,52 @@
           <div id="resultOfButtonPress" class="col-lg-12">
           </div>
 
-          <div id="candidatebox" class="col-lg-12">
+        <div id="candidatebox" class="col-lg-12">
 
-          <div id="whichCandidate">
-            <h4>Which presidential candidate for November 2015 shares your opinion?</h4>
+          <div id="whichCandidate" class="makeBig">
+          Which presidential candidate for November 2015 shares your opinion?
           </div>
 
-          <div ng-repeat="candidate in candidates" id="{{candidate}}" class="col-lg-12">
+          <div ng-repeat="candidate in candidates" id="{{candidate}}" class="col-lg-12" input type = "text">
             <img src="{{candidate.img}}" class="thumbnail col-lg-6">
             <div class="col-lg-6">
-                  {{candidate.bio}}
+              <span class="makeBig makeBold">
+                    {{candidate.bioName}}
+              </span>
+              <span class="makeBig">
+                    {{candidate.bioType}}
+              </span>
+            </div>
+            <br>
+            <div class="col-lg-6 makeMedium">
+                  {{candidate.summary}}
+            </div>
+            <br>
+            <div class="col-lg-6 makeMedium makeItalic">
+                  {{candidate.quote}}
             </div>
           </div>
 
         </div>
         <div id="moreButton" class="col-lg-12">
-          <button class="btn btn-primary" ng-click="toggleCandidate()">That isn't my candidate...show me more</button>
+          <button class="btn btn-primary" ng-click="toggleCandidate()">see more candidates</button>
         </div>
-  
+
           <script src="js/d3code.js">
           </script>
 
           <div id="votebox" class="col-lg-12">
           <h5>If this issue resonates with you, please cast your vote this November.</h5>
-          <h5>58% of Americans did not vote in our last presidential election. If all of these 184,962,000 citizens voted in this election, we might see real change and a more representative democracy.
+          <h5>58% of Americans did not vote in our last presidential election. If all of those 184,962,000 citizens voted in this election, we might see real change in the daily lives of Americans.
           </h5>
+
+          <div> <h6>&copy; Chris Altonji, Annalise Irby, Devanji Maisuria, Matt Petters. November 2015.</h6></div>
     </div>
   </div>
 
-
 </body>
+
+
+
 </html>
 
