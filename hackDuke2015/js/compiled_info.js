@@ -83,7 +83,7 @@ var updateSeverityD3 =  function(percent) {
 		                        .attr("y", 0)
 	                   		    .attr("width", function(d) { return d * 400; })
 		                        .attr("height", 30)
-		                        .style("fill", barColor);
+		                        .style("fill", '#34495e');
 
 		var rect2 = svgContainer.append('rect')
 								.attr("id", "rect2")
