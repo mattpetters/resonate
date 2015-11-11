@@ -50,7 +50,7 @@ d3.json("client/data.json", function(err, info) {
         }).transition().delay(50).duration(1000).attr({
           cx:function(d,i){return xScale(d.adjusted_2015)},
           cy:function(d,i){return yScale(d.rate)},
-           r: 3,
+           r: 6,
            fill:'#25B0B0'  
           });
 
