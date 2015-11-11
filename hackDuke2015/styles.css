@@ -72,3 +72,18 @@ div img.thumbnail {
     border-radius: 2px;
     margin-left: 16px;
 }
+
+#issueList {
+
+    list-style: none;
+    text-align: center;
+    display: list-item;
+}
+
+#issueList>li {
+    font-size: 30px;
+}
+
+#issueList>li:hover{
+        background-color: aliceblue;
+}

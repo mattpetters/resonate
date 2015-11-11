@@ -22,173 +22,36 @@
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <title>resonate</title>
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
   <link rel="stylesheet" href="css/tipsy.css">
   <link rel="stylesheet" href="styles.css">
+  <!-- Scripts -->
+  <script src="js/info_on_demographics.js"></script>
+  <script src="js/compiled_info.js"></script>
+  <!-- Script Libraries -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.2/jquery.tipsy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Angular Lib -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+  <!-- Angular Config -->
   <script src="js/app.js"></script>
-  <script src="js/info_on_demographics.js"></script>
-  <script src="js/compiled_info.js"></script>
+  <!-- Angular Controllers -->
+  <script src="js/controllers/issuesController.js"></script>
+  <script src="js/controllers/minimumWageController.js"></script>
+  <script src="js/controllers/healthcareController.js"></script>
+  <script src="js/controllers/foreignController.js"></script>
+  <script src="js/controllers/globalWarmingController.js"></script>
   </head>
-
 <body class="col-lg-12">
-  <div id="controller" ng-controller="HomeController">
-      <div id="branding" class="col-lg-offset-2 col-lg-8 text-center">
-            <img id="logo" src="img/thing.jpg" width="400px" height="350px"></img>
-            <hr>
-          </div>
-          <div id="chartDescription" class="col-lg-12 text-center"><div id="firstSentence">Minimum wage is the lowest salary per hour permitted by law.</div>
-          <h5>Currently, our federal minimum wage is $7.25 per hour. </h5>
-          <h5>When adjusted for inflation, this is $3.00 less than the minimum wage in 1968.</h5>
-          <h4 class="makeBold makeBig">What happens to Americans if we raise or lower the minimum wage?</h4>
-          </div>
-          <div id="chart1" class="col-lg-12 text-center">
-            <svg id="povertyChart" class="text-center"></svg>
-          </div>
-          <div id="chartUnderText" class="col-lg-12 text-center">
-          </div>
-            <div id="buttonsSexChart" class="col-lg-4"> 
-              <h4 id="sex_chart_header">Gender</h4>
-              <button class="btn btn-primary" value="Male">Male</button>
-              <button class="btn" value="Female">Female</button>
-            </div>
-            <div style="clear:both"></div>
-            <br>
-            <div class="chart" id="sexChart"></div>
-            <div style="clear:both"></div>
-            <br>
-            <div id="buttonsAgeChart" class="col-lg-4"> 
-              <h4 id="age_chart_header">Age</h4>
-              <button class="btn btn-primary" value="Less than 25">Less than 25</button>
-              <button class="btn" value="25 to 39">25 to 39</button>
-              <button class="btn" value="40 to 54">40 to 54</button>
-              <button class="btn" value="55+">55+</button>
-            </div>
-            <div style="clear:both"></div>
-            <br>
-            <div class="chart" id="ageChart"></div>
-            <div style="clear:both"></div>
-            <br>
-            <div id="buttonsRaceChart" class="col-lg-4"> 
-              <h4 id="race_chart_header">Age</h4>
-              <button class="btn btn-primary" value="White, non-Hispanic">White, non-Hispanic</button>
-              <button class="btn" value="Black or African American">Black or African American</button>
-              <button class="btn" value="Hispanic of any race">Hispanic of any race</button>
-              <button class="btn" value="Asian or other race/ethnicity">Asian or other race/ethnicity</button>
-            </div>
-            <div style="clear:both"></div>
-            <br>
-            <div class="chart" id="raceChart"></div>
-            <div style="clear:both"></div>
-            <br>
-            <div id="buttonsFamilyChart" class="col-lg-4"> 
-              <h4 id="family_chart_header">Family</h4>
-              <button class="btn btn-primary" value="Married parent">Married parent</button>
-              <button class="btn" value="Single parent">Single parent</button>
-              <button class="btn" value="Married, no kids">Married, no kids</button>
-              <button class="btn" value="Unmarried, no kids">Unmarried, no kids</button>
-            </div>
-            <div style="clear:both"></div>
-            <br>
-            <div class="chart" id="familyChart"></div>
-            <div style="clear:both"></div>
-            <br>
-            <div id="buttonsHoursChart" class="col-lg-4"> 
-              <h4 id="hours_chart_header">Family</h4>
-              <button class="btn btn-primary" value="Part time (< 19 hours per week)">Part time (lessthan 19 hours per week)</button>
-              <button class="btn" value="Mid time (20-34 hours per week)">Mid time (20-34 hours per week)</button>
-              <button class="btn" value="Full time (35+ hours per week)">Full time (35+ hours per week)</button>
-            </div>
-            <div style="clear:both"></div>
-            <br>
-            <div class="chart" id="hoursChart"></div>
-            <div style="clear:both"></div>
-            <h4 class="makeBold makeBig">So what does that all mean together?  We included a severity ranking to show you.?</h4>
-            <h4 id="severity_chart_header">Family</h4>
-            <br>
-            <div class="chart" id="severityChart"></div>
-            <div style="clear:both"></div>
-            <br>
-          <script>
-          updateSexChart();
-          updateAgeChart();
-          updateRaceChart();
-          updateFamilyChart();
-          updateHoursChart();
-          updateSeverity();
-          $("button").click(function(event) {
-              $(event.target).siblings().removeClass("btn-primary");
-              $(event.target).addClass("btn-primary");
-              var chart = $(event.target).parent().attr("id");
-              if (chart == 'buttonsAgeChart') {
-                updateAgeChart();
-              } else if (chart == 'buttonsSexChart') {
-                updateSexChart();
-              } else if (chart == 'buttonsRaceChart') {
-                updateRaceChart();
-              } else if (chart == "buttonsFamilyChart") {
-                updateFamilyChart();
-              } else if (chart == "buttonsHoursChart") {
-                updateHoursChart();
-              }
-              updateSeverity();
-          });
-          </script>
-          <div id="chartContainer">
-          </div>
-
-        <div id="candidatebox" class="col-lg-12">
-
-          <div id="whichCandidate" class="makeBig">
-          Which presidential candidate for November 2015 shares your opinion?
-          </div>
-
-          <div ng-repeat="candidate in candidates" id="{{candidate}}" class="col-lg-12" input type = "text">
-            <img src="{{candidate.img}}" class="thumbnail col-lg-6">
-            <div class="col-lg-6">
-              <span class="makeBig makeBold makeBlack">
-                    {{candidate.bioName}}
-              </span>
-              <span class="makeBig makeBlack">
-                    {{candidate.bioType}}
-              </span>
-            </div>
-            <br>
-            <div class="col-lg-6 makeMedium makeBlack">
-                  {{candidate.summary}}
-            </div>
-            <br>
-            <div class="col-lg-6 makeMedium makeItalic makeBlack">
-                  {{candidate.quote}}
-            </div>
-          </div>
-
-        </div>
-        <!-- <div id="moreButton" class="col-lg-12">
-          <button class="btn btn-primary" ng-click="toggleCandidate()">see more candidates</button>
-        </div> -->
-
-          <div id="votebox" class="col-lg-12">
-          <h5>If this issue resonates with you, please cast your vote this November.</h5>
-          <h5>58% of Americans did not vote in our last presidential election. If all of those 184,962,000 citizens voted in this election, we might see real change in the daily lives of Americans.
-          </h5>
-
-          <div class="makeMedium">Click <a href="about.html"> here</a> to learn more about <b>resonate</b>.</div>
-
-          <div class="makeMedium">Click <a href="sources.html"> here</a> for more resources on minimum wage in America.</div>
-
-          <div>created for hackduke 2015 <img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/1901/large/1409807106/hackduke-hack-kitty.png" height="25px" width="25px"alt=""></div>
-
-          <div> <h6>&copy; Chris Altonji, Annalise Irby, Devanji Maisuria, Matt Petters. November 3, 2015.</h6></div>
-    </div>
-  </div>
-  <script src="js/d3code.js"></script>
+  <div id="header" ng-include="'views/header.html'"></div>
+  <div class="col-lg-12" ng-view></div>
+  <div id="footer" ng-include="'views/footer.html'"></div>
 </body>
 
 
