@@ -47,7 +47,7 @@ d3.json("client/data.json", function(err, info) {
           cy:function(d,i){return yScale(d.rate)},
           r: 1,
           fill:'#35b025'
-        }).transition().delay(50).duration(1000).attr({
+        }).transition().delay(70).duration(1500).attr({
           cx:function(d,i){return xScale(d.adjusted_2015)},
           cy:function(d,i){return yScale(d.rate)},
            r: 6,
